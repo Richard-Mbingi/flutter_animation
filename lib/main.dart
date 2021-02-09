@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:logo_animation/home_screen.dart';
+import 'package:logo_animation/routes.dart';
+import 'package:logo_animation/screens/home_screen.dart';
 
 void main() {
+  Routes.createRoutes();
   runApp(MyApp());
 }
 
@@ -14,8 +16,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: Scaffold(body: HomeScreen()),
+      navigatorKey: Routes.sailor.navigatorKey,
+      onGenerateRoute: Routes.sailor.generator(),
     );
   }
 }
-
